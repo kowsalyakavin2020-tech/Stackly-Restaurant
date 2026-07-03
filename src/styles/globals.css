@@ -1,0 +1,40 @@
+/* Smooth scrolling and better font rendering */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better image rendering */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ea6c05;
+}
+
+/* Selection color */
+::selection {
+  background: #f97316;
+  color: white;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}

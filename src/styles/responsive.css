@@ -1,0 +1,241 @@
+/* ============================================================
+   STACKLY — RESPONSIVE OVERRIDES
+   Import this once in main.jsx (or App.jsx), e.g.:
+   import "./styles/responsive.css";
+
+   How it works: every page uses inline styles for the desktop
+   layout (grid-template-columns, padding, etc). Inline styles
+   always beat normal CSS, so every rule below uses !important
+   and is wrapped in a @media query — meaning it ONLY kicks in
+   below the given screen width and NEVER touches desktop.
+   ============================================================ */
+
+/* ---------- Global mobile safety net ---------- */
+/* Prevents any leftover fixed-width element from creating
+   horizontal scroll / blank space on small screens */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* ---------- Page container side padding ---------- */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* ---------- Generic grids ---------- */
+/* 4-column grids (value cards, contact info, stats, amenities, highlights) */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    row-gap: 20px !important;
+  }
+}
+@media (max-width: 560px) {
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 3-column grids (dishes, chefs, testimonials, blog cards) */
+@media (max-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    row-gap: 24px !important;
+  }
+}
+@media (max-width: 640px) {
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 2-column split layouts (About/Hero/Reservation/Contact side-by-side sections) */
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  /* image usually comes first in markup; keep natural order unless flagged */
+  .split-image-first {
+    order: 0;
+  }
+}
+
+/* ---------- Hero ---------- */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+    text-align: center;
+  }
+  .hero-actions {
+    justify-content: center !important;
+  }
+  .hero-trust-row {
+    justify-content: center !important;
+  }
+  .hero-image-wrap {
+    justify-content: center !important;
+  }
+}
+@media (max-width: 640px) {
+  .hero-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
+}
+@media (max-width: 420px) {
+  .hero-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---------- Section vertical padding ---------- */
+@media (max-width: 768px) {
+  .sec-pad-lg {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  .sec-pad-md {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+}
+
+/* ---------- Tall fixed-height images ---------- */
+@media (max-width: 900px) {
+  .img-tall {
+    height: 360px !important;
+  }
+}
+@media (max-width: 560px) {
+  .img-tall {
+    height: 280px !important;
+  }
+  .img-med {
+    height: 220px !important;
+  }
+}
+
+/* ---------- Floating badges positioned absolutely over images ---------- */
+/* On small screens these can overflow the card — pull them back inside */
+@media (max-width: 560px) {
+  .badge-float {
+    position: absolute !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    top: auto !important;
+    width: auto !important;
+  }
+  .badge-float-top {
+    position: absolute !important;
+    left: 12px !important;
+    right: auto !important;
+    top: 12px !important;
+    bottom: auto !important;
+  }
+}
+
+/* ---------- Decorative dot patterns / blur orbs ---------- */
+@media (max-width: 640px) {
+  .decor-hide-mobile {
+    display: none !important;
+  }
+}
+
+/* ---------- Gallery mosaic grid ---------- */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 180px !important;
+  }
+}
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .gallery-featured {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
+/* ---------- Featured/split banner (Blog featured post) ---------- */
+@media (max-width: 900px) {
+  .banner-split {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---------- Footer ---------- */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 36px !important;
+  }
+}
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+  .footer-social {
+    justify-content: center !important;
+  }
+}
+
+/* ---------- Filter tab rows (Menu / Gallery category buttons) ---------- */
+@media (max-width: 560px) {
+  .filter-row {
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 6px !important;
+  }
+}
+
+/* ---------- Forms ---------- */
+@media (max-width: 640px) {
+  .form-row-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---------- Reservation / process steps grid ---------- */
+@media (max-width: 900px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 480px) {
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---------- Utility: stack any row of inline elements on mobile ---------- */
+@media (max-width: 560px) {
+  .stack-mobile {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
