@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stackly Restaurant</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      //
+      // This fixes GitHub Pages 404s for client-side routed apps.
+      // GitHub Pages serves this file for ANY unknown path.
+      // We convert the real path into a query string, then redirect
+      // to index.html — index.html's script (see below) converts it
+      // back into a real path using pushState BEFORE React mounts.
+
+      var pathSegmentsToKeep = 1; // keep "/Stackly-Restaurant" as the base
+
+      var l = window.location;
+      l.replace(
+        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+        l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + "/?/" +
+        l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
